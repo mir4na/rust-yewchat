@@ -27,12 +27,29 @@ pub fn login() -> Html {
     };
 
     html! {
-       <div class="bg-gray-800 flex w-screen">
+        <div class="bg-gradient-to-br from-slate-900 via-gray-900 to-black flex w-screen h-screen">
             <div class="container mx-auto flex flex-col justify-center items-center">
-                <form class="m-4 flex">
-                    <input {oninput} class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" placeholder="Username" />
-                    <Link<Route> to={Route::Chat}> <button {onclick} disabled={username.len()<1} class="px-8 rounded-r-lg bg-violet-600	  text-white font-bold p-4 uppercase border-violet-600 border-t border-b border-r" >{"Go Chatting!"}</button></Link<Route>>
-                </form>
+                <div class="bg-black bg-opacity-30 backdrop-blur-md rounded-3xl p-8 border border-purple-400 border-opacity-20 shadow-2xl shadow-purple-500/10">
+                    <h1 class="text-4xl font-bold text-center text-gray-100 mb-8">
+                        {"💬 YewChat"}
+                    </h1>
+                    <form class="m-4 flex">
+                        <input 
+                            {oninput} 
+                            class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-200 border-purple-400 border-opacity-30 bg-gray-800 bg-opacity-40 backdrop-blur-sm placeholder-gray-400 outline-none focus:ring-1 focus:ring-purple-400" 
+                            placeholder="Username" 
+                        />
+                        <Link<Route> to={Route::Chat}> 
+                            <button 
+                                {onclick} 
+                                disabled={username.len()<1} 
+                                class="px-8 rounded-r-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold p-4 uppercase border-purple-600 border-t border-b border-r hover:from-purple-500 hover:to-indigo-500 transition-all duration-300 disabled:opacity-50" 
+                            >
+                                {"Go Chatting!"}
+                            </button>
+                        </Link<Route>>
+                    </form>
+                </div>
             </div>
         </div>
     }
